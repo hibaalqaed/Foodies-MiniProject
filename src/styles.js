@@ -50,3 +50,11 @@ export const ItemWrapper = styled.div`
     font-size: 20px;
   }
 `;
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+  }
+`;

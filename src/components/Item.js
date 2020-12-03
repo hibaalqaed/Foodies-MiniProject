@@ -1,5 +1,8 @@
 import { ItemWrapper } from "../styles";
 
+// //observer
+import { observer } from "mobx-react";
+
 function Item({ food }) {
   return (
     <ItemWrapper>
@@ -9,4 +12,4 @@ function Item({ food }) {
   );
 }
 
-export default Item;
+export default observer(Item);

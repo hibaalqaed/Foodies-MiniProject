@@ -2,7 +2,7 @@ import { makeAutoObservable, observable } from "mobx";
 import ingredient from "../ingredient";
 
 class IngredientStore {
-  ingredient = ingredient;
+  ingredients = ingredient;
 
   constructor() {
     makeAutoObservable(this);
