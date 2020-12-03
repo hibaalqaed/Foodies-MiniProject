@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+//components
+import List from "./components/List";
+import { Description, Title } from "./styles";
+
+//stores
+import recipeStore from "./stores/recipeStore";
+import categoryStore from "./stores/categoryStore";
+import ingredientStore from "./stores/ingredientStore";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Title>Foodiez</Title>
+      <Description>Where you can find delightful recipes</Description>
+      <List food={categoryStore.category} />
+      <List food={ingredientStore.ingredient} />
+      <List food={recipeStore.recipes} />
+    </>
   );
 }
 
