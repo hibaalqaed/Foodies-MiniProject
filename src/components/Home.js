@@ -4,12 +4,12 @@ import NavBar from "./NavBar";
 const Home = () => {
   return (
     <HomePage>
+      <NavBar />
       <div>
-        <NavBar />
         <Title>Foodiez</Title>
         <Description>Where you can find all the delightful</Description>
         <Description> recipes</Description>
-        <ButtonStyled onClick={() => window.scroll(0, 700)}>Start</ButtonStyled>
+        <ButtonStyled onClick={() => window.scroll(0, 500)}>Start</ButtonStyled>
       </div>
     </HomePage>
   );

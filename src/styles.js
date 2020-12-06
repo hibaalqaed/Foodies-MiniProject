@@ -7,8 +7,16 @@ body{
     color:${(props) => props.theme.dark};
     background: ${(props) => props.theme.backgroundColor};
     font-family: Fantasy;
-    p{
+    h1{
+     
       text-align: center;
+    }
+
+    .displayflex{
+      display: flex;
+      
+      align-items: center;
+      justify-content: center;
     }
   
 }
@@ -105,6 +113,28 @@ export const ThemeButton = styled.button`
   border-radius: 4px;
   font-size: 20px;
 
+  color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.button};
+  &:hover {
+    text-shadow: 1px 1px white;
+    color: ${(props) => props.theme.dark};
+    background-color: ${(props) => props.theme.buttonHover};
+  }
+`;
+
+export const ButtonStyledFlex = styled.button`
+  justify-content: center;
+  display: flex;
+  width: 180px;
+  hight: 140px;
+  text-shadow: 2px 1px black;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 200px;
   color: ${(props) => props.theme.mainColor};
   background-color: ${(props) => props.theme.button};
   &:hover {

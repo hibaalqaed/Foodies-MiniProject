@@ -9,7 +9,7 @@ const NavBar = () => {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav mr-auto">
           <ThemeButton>
-            <Link to="/" onClick={() => window.scroll(0, 700)}>
+            <Link to="/" onClick={() => window.scroll(0, 0)}>
               Home
             </Link>{" "}
           </ThemeButton>

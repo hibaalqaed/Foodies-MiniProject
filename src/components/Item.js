@@ -6,15 +6,13 @@ import { Link } from "react-router-dom";
 
 function Item({ food, listPath }) {
   return (
-    <>
-      <ItemWrapper>
-        <Link to={`/${food.name} ${listPath}`}>
-          <img src={food.image} />
-        </Link>
+    <ItemWrapper>
+      <Link to={`/${food.slug}${listPath}`}>
+        <img src={food.image} />
+      </Link>
 
-        <h3>{food.name}</h3>
-      </ItemWrapper>
-    </>
+      <h3>{food.name}</h3>
+    </ItemWrapper>
   );
 }
 

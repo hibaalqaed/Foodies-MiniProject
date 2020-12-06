@@ -4,29 +4,56 @@ import { observer } from "mobx-react";
 
 //Components
 import List from "./List";
-import AddButton from "./AddButton";
-
+import IngredientList from "./IngredientList";
 //stores
 import recipeStore from "../stores/recipeStore";
 import categoryStore from "../stores/categoryStore";
 import ingredientStore from "../stores/ingredientStore";
 
+//buttons
+import AddButton from "./AddButton";
+import { Title } from "../styles";
+import AddIngredient from "./AddIngredient";
+
+//styles
+
 const Routes = () => {
   return (
-    <Switch>
-      <Route path="/:ingredientName/recipes">
-        <List food={recipeStore.recipes} listPath={""} />
-      </Route>
+    <>
+      <Switch>
+        <Route path="/recipes">
+          <Title>Recipes</Title>
+          <List food={recipeStore.recipes} listPath={""} />
+        </Route>
 
-      <Route path="/:categoryName">
-        <List food={ingredientStore.ingredients} listPath={"/recipes"} />
-      </Route>
+        <Route path="/ingredients">
+          <Title>ingredients</Title>
+          <List food={ingredientStore.ingredients} listPath={"/recipes"} />
+        </Route>
 
-      <Route path="/">
-        <AddButton></AddButton>
-        <List food={categoryStore.categories} listPath={""} />
-      </Route>
-    </Switch>
+        <Route path="/:ingredients/recipes">
+          <Title>Recipes</Title>
+          <List food={recipeStore.recipes} listPath={""} />
+        </Route>
+
+        <Route path="/:categories/ingredients">
+          <Title>ingredients</Title>
+          <AddIngredient></AddIngredient>
+          <IngredientList
+            food={ingredientStore.ingredients}
+            listPath={"/recipes"}
+          />
+        </Route>
+
+        <Route path="/categories">
+          <Title>Categories</Title>
+          <AddButton></AddButton>
+          <List food={categoryStore.categories} listPath={"/ingredients"} />
+        </Route>
+
+        {/* need to create onemore route for the home */}
+      </Switch>
+    </>
   );
 };
 

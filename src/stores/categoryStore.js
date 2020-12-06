@@ -1,21 +1,39 @@
+import axios from "axios";
 import { makeAutoObservable } from "mobx";
-import category from "../category";
 
 class CategoryStore {
-  categories = category;
+  categories = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  createCategory = (newcategory) => {
-    this.categories.push(newcategory);
-    console.log(
-      "CategoryStore -> createCategory -> this.Categorys",
-      this.categories[this.categories.length - 1]
-    );
+  fetchCategories = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/categories");
+      this.categories = res.data;
+    } catch (error) {
+      console.error("CategorieStore -> fetchCategories -> error", error);
+    }
+  };
+
+  createCategory = async (newcategory) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/categories",
+        newcategory
+      );
+      this.categories.push(res.data);
+    } catch (error) {
+      console.error("CategorieStore -> createCategories -> error", error);
+    }
+  };
+
+  findCategoryById = async (categoryId) => {
+    this.categories.find((category) => category.id === categoryId);
   };
 }
 
 const categoryStore = new CategoryStore();
+categoryStore.fetchCategories();
 export default categoryStore;
