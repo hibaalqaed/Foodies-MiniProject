@@ -21,12 +21,18 @@ class IngredientStore {
 
   //create
   createIngredient = async (newIngredient, categoryId) => {
+    console.log(categoryId);
+    const id = categoryStore.categories.find(
+      (cat) => cat.slug === categoryId.categories
+    );
+    console.log("findcatby ID", id);
+
     try {
       const response = await axios.post(
         `http://localhost:8000/categories/${categoryId}/ingredients`,
         newIngredient
       );
-      console.log("found me", categoryStore.findCategoryById(categoryId));
+
       this.ingredients.push(response.data);
     } catch (error) {
       console.error("error");

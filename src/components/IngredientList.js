@@ -8,15 +8,18 @@ import { observer } from "mobx-react";
 
 //components
 import Item from "./Item";
+import categoryStore from "../stores/categoryStore";
 
 function IngredientList({ food, listPath }) {
   const catergoryId = useParams();
-  console.log(catergoryId.categories);
-  const List = food.filter(
-    (fooditem) =>
-      fooditem.categories.name.toLowerCase() === catergoryId.categories
+  const findObject = categoryStore.categories.find(
+    (category) => category.slug === catergoryId.categories
   );
-  console.log(food.map((fooditem) => fooditem.categories.name.toLowerCase()));
+
+  const List = food.filter(
+    (fooditem) => fooditem.categoriesId === findObject.id
+  );
+
   return (
     <>
       {List.length === 0 ? (

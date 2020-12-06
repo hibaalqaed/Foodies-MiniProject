@@ -28,10 +28,6 @@ class CategoryStore {
       console.error("CategorieStore -> createCategories -> error", error);
     }
   };
-
-  findCategoryById = async (categoryId) => {
-    this.categories.find((category) => category.id === categoryId);
-  };
 }
 
 const categoryStore = new CategoryStore();

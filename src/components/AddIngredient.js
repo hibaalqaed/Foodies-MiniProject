@@ -8,7 +8,11 @@ import categoryStore from "../stores/categoryStore";
 import IngredientModal from "./modals/IngredientModal";
 
 const AddButton = () => {
-  const categoryId = useParams();
+  const categorySlug = useParams();
+  const findObject = categoryStore.categories.find(
+    (category) => category.slug === categorySlug.categories
+  );
+  const categoryId = findObject.id;
   const [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => setIsOpen(false);
