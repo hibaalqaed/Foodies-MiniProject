@@ -1,22 +1,44 @@
 import styled, { createGlobalStyle } from "styled-components";
+import imageSrc from "./food.jpg";
 
 //Global style for the page
 export const GlobalStyle = createGlobalStyle`
 body{
-    color:${(props) => props.theme.mainColor};
+    color:${(props) => props.theme.dark};
     background: ${(props) => props.theme.backgroundColor};
+    font-family: Fantasy;
     p{
       text-align: center;
     }
+  
 }
 `;
 
 export const Title = styled.h1`
+  color: ${(props) => props.theme.mainColor};
   text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+  text-shadow: 4px 2px black;
 `;
 
 export const Description = styled.h4`
+  color: ${(props) => props.theme.mainColor};
   text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 4px 2px black;
+`;
+
+export const HomePage = styled.div`
+  margin-bottom: 200px;
+  align-content: center;
+  background-image: url(${imageSrc});
+  background-color: #cccccc;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const ListWrapper = styled.div`
@@ -28,33 +50,66 @@ export const ListWrapper = styled.div`
 `;
 
 export const ItemWrapper = styled.div`
-  margin: 10px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: ${(props) => props.theme.itemBorder};
-  border-radius: 5px;
+  margin: 20px;
+  color: ${(props) => props.theme.dark};
+  transition: transform 0.2s;
   img {
-    border-bottom-style: solid;
-    border-width: 2px;
-    border-color: ${(props) => props.theme.itemBorder};
     width: 300px;
     height: 300px;
     object-fit: cover;
+    raduis: 50px;
+    margin-bottom: 10px;
+  }
+  :hover {
+    transform: scale(1.1);
   }
   h3 {
     text-align: center;
-    color: ${(props) => props.theme.blue};
-  }
-  p {
-    text-align: center;
-    font-size: 20px;
   }
 `;
 export const CreateButtonStyled = styled.button`
-  color: ${(props) => props.theme.backgroundColor};
-  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.button};
+  font-size: 20px;
+  text-shadow: 1px 1px black;
+  border-radius: 4px;
   &:hover {
-    color: ${(props) => props.theme.mainColor};
-    background-color: ${(props) => props.theme.backgroundColor};
+    text-shadow: 1px 1px white;
+    color: ${(props) => props.theme.dark};
+    background-color: ${(props) => props.theme.buttonHover};
+  }
+`;
+
+export const ButtonStyled = styled.button`
+  display: block;
+  width: 150px;
+  hight: 100px;
+  text-shadow: 2px 1px black;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 190px;
+  margin-left: auto;
+  margin-right: auto;
+  color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.button};
+  &:hover {
+    text-shadow: 1px 1px white;
+    color: ${(props) => props.theme.dark};
+    background-color: ${(props) => props.theme.buttonHover};
+  }
+`;
+
+export const ThemeButton = styled.button`
+  text-shadow: 1px 1px black;
+  border-radius: 4px;
+  font-size: 20px;
+
+  color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.button};
+  &:hover {
+    text-shadow: 1px 1px white;
+    color: ${(props) => props.theme.dark};
+    background-color: ${(props) => props.theme.buttonHover};
   }
 `;

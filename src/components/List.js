@@ -7,12 +7,12 @@ import { observer } from "mobx-react";
 //components
 import Item from "./Item";
 
-function List({ food }) {
+function List({ food, listPath }) {
   return (
     <>
       <ListWrapper>
         {food.map((fooditem) => (
-          <Item food={fooditem} />
+          <Item food={fooditem} listPath={listPath} />
         ))}
       </ListWrapper>
     </>

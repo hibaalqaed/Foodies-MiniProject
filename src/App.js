@@ -4,27 +4,29 @@ import "./App.css";
 import { observer } from "mobx-react";
 
 //components
-import List from "./components/List";
-import { Description, Title } from "./styles";
+import Routes from "./components/Routes";
 
-//button
-import AddButton from "./components/AddButton";
+import Home from "./components/Home";
 
-//stores
-import recipeStore from "./stores/recipeStore";
-import categoryStore from "./stores/categoryStore";
-import ingredientStore from "./stores/ingredientStore";
+//styles
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles";
 
 function App() {
+  const theme = {
+    mainColor: "white",
+    backgroundColor: "#EBE0DF",
+    dark: "black",
+    button: "#C3A098",
+    buttonHover: "DB4620",
+  };
   return (
-    <>
-      <Title>Foodiez</Title>
-      <Description>Where you can find all the delightful recipes</Description>
-      <AddButton></AddButton>
-      <List food={categoryStore.categories} />
-      <List food={ingredientStore.ingredients} />
-      <List food={recipeStore.recipes} />
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+
+      <Home />
+      <Routes />
+    </ThemeProvider>
   );
 }
 

@@ -2,13 +2,19 @@ import { ItemWrapper } from "../styles";
 
 // //observer
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 
-function Item({ food }) {
+function Item({ food, listPath }) {
   return (
-    <ItemWrapper>
-      <img src={food.image} />
-      <h3>{food.name}</h3>
-    </ItemWrapper>
+    <>
+      <ItemWrapper>
+        <Link to={`/${food.name} ${listPath}`}>
+          <img src={food.image} />
+        </Link>
+
+        <h3>{food.name}</h3>
+      </ItemWrapper>
+    </>
   );
 }
 
