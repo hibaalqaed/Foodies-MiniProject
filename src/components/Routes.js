@@ -35,7 +35,7 @@ const Routes = () => {
 
         <Route path="/:ingredients/recipes">
           <Title>Recipes</Title>
-          <RecipeList food={recipeStore.recipes} listPath={""} />
+          <RecipeList food={recipeStore.recipes} listPath={"/recipe-details"} />
         </Route>
 
         <Route path="/:categories/ingredients">
