@@ -143,3 +143,24 @@ export const ButtonStyledFlex = styled.button`
     background-color: ${(props) => props.theme.buttonHover};
   }
 `;
+
+export const DetailWrapper = styled.div`
+  justify-content: center;
+  margin: 20px;
+  color: ${(props) => props.theme.dark};
+  transition: transform 0.2s;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
+    raduis: 50px;
+    margin-bottom: 10px;
+  }
+
+  p,
+  h1 {
+    text-align: center;
+  }
+`;

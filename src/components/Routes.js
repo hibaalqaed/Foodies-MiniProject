@@ -5,6 +5,9 @@ import { observer } from "mobx-react";
 //Components
 import List from "./List";
 import IngredientList from "./IngredientList";
+import RecipeList from "./RecipeList";
+import RecipeDetails from "./RecipeDetails";
+
 //stores
 import recipeStore from "../stores/recipeStore";
 import categoryStore from "../stores/categoryStore";
@@ -21,19 +24,18 @@ const Routes = () => {
   return (
     <>
       <Switch>
+        <Route path="/:recipename/recipe-details">
+          <Title>Cook with passion</Title>
+          <RecipeDetails food={recipeStore.recipes} listPath={""} />
+        </Route>
         <Route path="/recipes">
           <Title>Recipes</Title>
-          <List food={recipeStore.recipes} listPath={""} />
-        </Route>
-
-        <Route path="/ingredients">
-          <Title>ingredients</Title>
-          <List food={ingredientStore.ingredients} listPath={"/recipes"} />
+          <List food={recipeStore.recipes} listPath={"/recipe-details"} />
         </Route>
 
         <Route path="/:ingredients/recipes">
           <Title>Recipes</Title>
-          <List food={recipeStore.recipes} listPath={""} />
+          <RecipeList food={recipeStore.recipes} listPath={""} />
         </Route>
 
         <Route path="/:categories/ingredients">
@@ -43,6 +45,11 @@ const Routes = () => {
             food={ingredientStore.ingredients}
             listPath={"/recipes"}
           />
+        </Route>
+
+        <Route path="/ingredients">
+          <Title>ingredients</Title>
+          <List food={ingredientStore.ingredients} listPath={"/recipes"} />
         </Route>
 
         <Route path="/categories">
